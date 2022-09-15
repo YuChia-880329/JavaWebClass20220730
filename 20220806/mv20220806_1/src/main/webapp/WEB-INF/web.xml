@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+	<display-name>mv20220806_1</display-name>
+  	<welcome-file-list>
+    	<welcome-file>index.html</welcome-file>
+    	<welcome-file>index.jsp</welcome-file>
+  	</welcome-file-list>
+	
+	
+	<servlet>
+		<servlet-name>Show_product</servlet-name>
+		<servlet-class>controller.web.ShowProductServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Show_product</servlet-name>
+		<url-pattern>/show_product</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>Show_sup</servlet-name>
+		<servlet-class>controller.web.ShowSupServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Show_sup</servlet-name>
+		<url-pattern>/show_sup</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>Insert_cof</servlet-name>
+		<servlet-class>controller.web.InsertCoffeeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Insert_cof</servlet-name>
+		<url-pattern>/insert_cof</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>Stored_procedure</servlet-name>
+		<servlet-class>controller.web.ProceduredServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Stored_procedure</servlet-name>
+		<url-pattern>/procedure</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>Gson_servlet</servlet-name>
+		<servlet-class>controller.web.GsonServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Gson_servlet</servlet-name>
+		<url-pattern>/gson</url-pattern>
+	</servlet-mapping>
+</web-app>
