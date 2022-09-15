@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>mv202208020_1</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>ShowUserServlet</servlet-name>
+  	<servlet-class>web.ShowUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ShowUserServlet</servlet-name>
+  	<url-pattern>/userJPA</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>ShowStudentServlet</servlet-name>
+  	<servlet-class>web.ShowStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ShowStudentServlet</servlet-name>
+  	<url-pattern>/studentJPA</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>InsertStudentServlet</servlet-name>
+  	<servlet-class>web.InsertStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>InsertStudentServlet</servlet-name>
+  	<url-pattern>/insertStudent</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>UpdateStudentServlet</servlet-name>
+  	<servlet-class>web.UpdateStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UpdateStudentServlet</servlet-name>
+  	<url-pattern>/updateStudent</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>DeleteStudentServlet</servlet-name>
+  	<servlet-class>web.DeleteStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DeleteStudentServlet</servlet-name>
+  	<url-pattern>/deleteStudent</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>ShowCoffeeServlet</servlet-name>
+  	<servlet-class>web.ShowCoffeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ShowCoffeeServlet</servlet-name>
+  	<url-pattern>/showCoffee</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>ShowSupplierServlet</servlet-name>
+  	<servlet-class>web.ShowSupplierServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ShowSupplierServlet</servlet-name>
+  	<url-pattern>/showSup</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
