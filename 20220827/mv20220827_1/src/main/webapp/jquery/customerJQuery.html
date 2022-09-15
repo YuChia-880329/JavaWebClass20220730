@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Customer JQuery</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	var button_click = function(){
+		let URLs = "../app/customers/post";
+		let obj = {};
+		obj.name=$("#name").val();
+		obj.id=$("#id").val();
+		obj.phone=$("#phone").val();
+		obj.city=$("#city").val();
+		
+		$.ajax({
+			url:URLs,
+			data:JSON.stringify(obj),
+			contentType:"application/json",
+			dataType:"html",
+			type:"POST",
+			success:function(data){
+				$("#msg").html(data);
+			},
+			error:function(htx, ajaxOptions, thrownError){
+				alert(htx.status);
+				alert(thrownError);
+			}
+		})
+	}
+</script>
+</head>
+<body>
+	<form >
+		Customer Name : <input type="text" id="name" value="Mary" /><br/>
+		ID : <input type="text" id="id" value="103" /><br/>
+		Phone : <input type="text" id="phone" value="023648896" /><br/>
+		City : <input type="text" id="city" value="Taipei" /><br/>
+		<input type="button" value="send" onclick="button_click()" />
+	</form>
+	
+	<div id="msg"></div>
+</body>
+</html>

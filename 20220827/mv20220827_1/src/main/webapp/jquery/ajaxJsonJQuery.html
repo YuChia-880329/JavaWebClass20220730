@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax Json JQuery</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+	var button_onclick = function(){
+		var obj = {};
+		obj.name = $("#name").val();
+		obj.city = $("#city").val();
+		
+		var URLs = "../ajax_json";
+		$.ajax({
+			url:URLs,
+			data:JSON.stringify(obj),
+			contentType:"application/json",
+			type:"POST",
+			dataType:"html",
+			success:function(data){
+				$("#msg").html(data);
+			},
+			error:function(xhr, ajaxOptions, thrownError){
+				alert(xhr.status);
+				alert(thrownError);
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<form>
+		<input type="text" id="name" value="Mary" /><br/>
+		<input type="text" id="city" value="Taipei" /><br/>
+		<input type="button" value="send" onclick="button_onclick()" /><br/>
+	</form>
+	
+	<div id="msg"></div>
+</body>
+</html>

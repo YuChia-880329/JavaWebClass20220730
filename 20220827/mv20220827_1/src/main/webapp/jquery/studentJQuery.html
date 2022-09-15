@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student JQuery</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+	var button_click = function(){
+		let obj = {};
+		obj.id= $("#identity").val();
+		obj.age = $("#age").val();
+		obj.stuName = $("#name").val();
+		
+		let URLs = "../app/students/post";
+		$.ajax({
+			url:URLs,
+			data:JSON.stringify(obj),
+			dataType:"html",
+			contentType:"application/json",
+			type:"POST",
+			success:function(data){
+				$("#msg").html(data);
+			},
+			error:function(htx, ajaxOptions, thrownError){
+				alert(htx.status);
+				alert(thrownError);
+			}
+			
+			
+		})
+	}
+</script>
+</head>
+<body>
+	<form>
+		Student ID : <input type="text" id="identity" value="101" /><br/>
+		Age : <input type="text" id="age" value="20" /><br/>
+		Name : <input type="text" id="name" value="Mary" /><br/>
+		<input type="button" value="send" onclick="button_click()" />
+	</form>
+	
+	<div id="msg"></div>
+</body>
+</html>

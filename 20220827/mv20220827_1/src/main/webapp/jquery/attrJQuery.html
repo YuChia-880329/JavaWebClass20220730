@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Attribute JQuery</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(document).ready(start);
+	
+	function start(){
+		$("button").click(button_click);
+	}
+	
+	function button_click(){
+		$("img").attr("src", "../images/myImage.jpg");
+	}
+</script>
+</head>
+<body>
+	<img alt="img" src="" width="600" height="400" /><br/>
+	<button>show img</button>
+</body>
+</html>

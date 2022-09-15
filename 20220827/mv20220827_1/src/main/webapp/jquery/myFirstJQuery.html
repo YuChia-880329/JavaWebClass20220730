@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My First JQuery</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+		$(document).ready(start);
+		
+		function start(){
+			$("#b1").click(b1_click);
+			$("#b2").click(function(){
+				$("#phone").addClass("showRed");
+			});
+		}
+		
+		function b1_click(){
+			alert("Button b1 Clicked");
+		}
+</script>
+<style type="text/css">
+	.showRed{
+		color:red;
+	}
+</style>
+
+</head>
+<body>
+	<p class="showRed">Hello World</p>
+	
+	<p id="phone">123456</p>
+
+	<button id="b1">Test1</button>
+	<button id="b2">Test2</button>
+</body>
+</html>

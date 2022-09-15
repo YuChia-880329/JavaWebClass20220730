@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Post JQuery</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+	$(document).ready(start);
+	
+	function start(){
+		$("button").click(button_click);
+	}
+	
+	function button_click(){
+		$.post("../test2.jsp", {
+			name:"王小明",
+			city:"台北"
+		}, result);
+	}
+	
+	function result(data, status){
+		alert(status);
+		$("#msg").html(data);
+	}
+</script>
+</head>
+<body>
+	<button>send</button>
+	
+	<div id="msg"></div>
+</body>
+</html>

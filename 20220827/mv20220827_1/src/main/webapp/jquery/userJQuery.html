@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>User JQuery</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	function button_onclick(){
+		let URLs = "../app/users/post";
+		let obj = {
+			id:$("#identity").val(),
+			name:$("#name").val()
+		};
+		
+		$.ajax({
+			url:URLs,
+			data:JSON.stringify(obj),
+			contentType:"application/json",
+			dataType:"html",
+			type:"POST",
+			success:function(data){
+				$("#msg").html(data);
+			},
+			error:function(htx, ajaxOptions, thrownError){
+				alert(htx.status);
+				alert(thrownError);
+			}
+			
+		});
+	}
+</script>
+</head>
+<body>
+	<form>
+		User ID : <input type="text" id="identity" value="101" /><br/>
+		User Name : <input type="text" id="name" value="Brian" /><br/>
+		<input type="button" value="send" onclick="button_onclick()" />
+	</form>
+	
+	<div id="msg"></div>
+</body>
+</html>
