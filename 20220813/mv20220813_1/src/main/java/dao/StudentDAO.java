@@ -17,7 +17,7 @@ public class StudentDAO {
 		
 		
 		try(Connection con = DBTools.DBTOOLS.getConnection();
-				PreparedStatement pst = con.prepareStatement(queryStr)){
+				PreparedStatement pst = con.prepareStatement(queryStr);){
 			for(Student student : students) {
 				pst.setString(1, student.getName());
 				pst.setInt(2, student.getAge());
