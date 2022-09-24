@@ -1,4 +1,4 @@
-package demo.bean.model;
+package demo.spring.bean.model;
 
 public class Employee {
 	private int employeeNumber;
@@ -82,6 +82,6 @@ public class Employee {
 				+ ", extension=" + extension + ", email=" + email + ", officeCode=" + officeCode + ", reportsTo="
 				+ reportsTo + ", jobTitle=" + jobTitle + "]";
 	}
-	
+
 	
 }

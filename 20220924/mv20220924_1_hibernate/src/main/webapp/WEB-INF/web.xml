@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>mv20220924_1_hibernate</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>coffeeServlet</servlet-name>
+  	<servlet-class>controller.web.CoffeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>coffeeServlet</servlet-name>
+  	<url-pattern>/coffee</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>supplierServlet</servlet-name>
+  	<servlet-class>controller.web.SupplierServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>supplierServlet</servlet-name>
+  	<url-pattern>/supplier</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>stuServlet</servlet-name>
+  	<servlet-class>controller.web.StudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>stuServlet</servlet-name>
+  	<url-pattern>/student</url-pattern>
+  </servlet-mapping>
+</web-app>
