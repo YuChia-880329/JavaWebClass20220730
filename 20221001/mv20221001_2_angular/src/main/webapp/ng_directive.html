@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Ng Directive</title>
+	
+	<script src="js/angular.min.js"></script>
+	
+	<script type="text/javascript">
+		var app = angular.module("myApp", []);
+		app.directive("codeDirective", function(){
+			return {
+				restrict:"A",
+				template:"<h1>自定義指令!</h1>"}
+		});
+	</script>
+</head>
+<body>
+	<div ng-app="myApp">
+		<code-directive>No data</code-directive>
+		<div code-directive>No data</div>
+	</div>
+</body>
+</html>

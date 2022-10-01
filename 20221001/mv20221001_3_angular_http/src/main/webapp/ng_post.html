@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>User Post</title>
+	
+	<script src="js/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		var app = angular.module("myApp", []);
+		app.controller("myCtrl", function($scope, $http){
+			$scope.postData = function(name, age, address){
+				
+				let data = $.param({
+					name:name,
+					age:age,
+					address:address
+				});
+				
+				
+				let config = {
+						headers : {
+							"Content-Type" : "application/x-www-form-urlencoded;charset=utf-8;"
+						}
+				};
+				
+				$http.post("user", data, config).then(function (response){
+					
+					$scope.msg = response.data;
+					$scope.statusVal = response.status;
+					$scope.statusText = response.statusText;
+					$scope.headers = response.headers();
+					
+				}, function(data, status, header, config){
+					$scope.msg = "Error data : " + data + 
+						"<br/> status : " + status + 
+						"<br/> header : " + header + 
+						"<br/> config : " + config;
+				});
+			};
+		});
+	</script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<div>
+			Name : <input type="text" ng-model="name"/><br/><br/>
+			Age : <input type="text" ng-model="age"/><br/><br/>
+			Address : <input type="text" ng-model="address"/><br/><br/>
+			<button type="button" ng-click="postData(name, age, address)">Send</button>
+		</div>
+		
+		<p>Output Message : {{msg}}</p>
+		<p>Status Code : {{statusVal}}</p>
+		<p>Status : {{statusText}}</p>
+		<p>Response Header : {{headers}}</p>
+	</div>
+</body>
+</html>

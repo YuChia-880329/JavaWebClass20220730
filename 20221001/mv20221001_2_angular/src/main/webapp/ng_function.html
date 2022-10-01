@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Ng Function</title>
+	
+	<script src="js/angular.min.js"></script>
+	
+	<script type="text/javascript">
+		var app = angular.module("myApp", []);
+		app.controller("myCtrl", function($scope){
+			$scope.master = {
+					firstName: "John",
+					lastName: "Doe"
+			};
+			$scope.reset = function(){
+				$scope.user = angular.copy($scope.master);
+			};
+			
+			$scope.reset();
+			
+		});
+	</script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<form>
+			First Name : <br/>
+			<input type="text" ng-model="user.firstName" /><br/>
+			Last Name : <br/>
+			<input type="text" ng-model="user.lastName" /><br/>
+			
+			<button ng-click="reset()">Reset</button>
+		</form>
+		
+		<p>form = {{user}}</p>
+ 		 <p>master = {{master}}</p>
+		
+	</div>
+</body>
+</html>

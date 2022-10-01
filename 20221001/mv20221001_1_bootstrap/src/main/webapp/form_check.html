@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Form</title>
+	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  	<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<form class="was-validated">
+			<div class="form-group">
+				<label for="user">User Name:</label>
+				<input type="email" placeholder="Enter user name" id="user" class="form-control" required />
+				<div class="valid-feedback">Valid.</div>
+				<div class="invalid-feedback">Please fill out this field.</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="pwd">Password:</label>
+				<input type="password" placeholder="Enter password" id="pwd" class="form-control" required />
+				<div class="valid-feedback">Valid.</div>
+				<div class="invalid-feedback">Please fill out this field.</div>
+			</div>
+			
+			<div class="form-group form-check">
+				<label class="form-check-label">
+					<input type="checkbox" class="form-check-input" required/>
+					I agree on blabla.
+					<div class="valid-feedback">Valid.</div>
+					<div class="invalid-feedback">Check this checkbox to continue.</div>
+				</label>
+			</div>
+			
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</body>
+</html>

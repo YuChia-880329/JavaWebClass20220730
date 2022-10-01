@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>User Post 2</title>
+	
+	<script src="js/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		var app = angular.module("myApp", []);
+		app.controller("myCtrl", function($scope, $http){
+			$scope.postData = function(name, age, address){
+				let data = {
+					name : name,
+					age : age,
+					address : address
+				};
+				
+				$http.post("post", data).then(function(response){
+					if(response.data)
+						$scope.msg = response.data;
+				}, function(response){
+					$scope.msg = response.data;
+					$scope.statusVal = response.status;
+					$scope.statusText = response.statusText;
+					$scope.headers = response.headers();
+				});
+			}
+		});
+	</script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<div>
+			Name : <input type="text" ng-model="name" /><br/><br/>
+			Age : <input type="text" ng-model="age" /><br/><br/>
+			Address : <input type="text" ng-model="address" /><br/><br/>
+			<input type="button" value="Send" ng-click="postData(name, age, address)" />
+		</div>
+		
+		<p>Message : {{msg}}</p>
+		<p>Status Code : {{statusVal}}</p>
+		<p>Status : {{statusText}}</p>
+		<p>Response Header : {{headers}}</p>
+	</div>
+</body>
+</html>
