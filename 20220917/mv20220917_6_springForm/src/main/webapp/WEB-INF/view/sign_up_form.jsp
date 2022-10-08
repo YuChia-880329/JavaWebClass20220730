@@ -7,8 +7,10 @@
 <head>
 	<meta charset="utf-8">
 	<title>Spring MVC 5 - form handling | Java Guides</title>
-	<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" />
 	<script src="<c:url value="/resources/js/jquery3.6.0.min.js" />"></script>
+	
+	
+	<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" />
 	<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 
 </head>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Employee Form</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+		var app = angular.module("myApp", []);
+		app.controller("myController", function($scope, $http){
+			$scope.name = "Andy";
+			$scope.department = "Personnel";
+
+			$scope.showEmps = function(){
+				$http({
+					method : "GET",
+					url : "employee"
+				}).then(_show, _error);
+			};
+			function _show(response){
+				$scope.emps = response.data;
+			}
+
+			
+			$scope.addEmp = function(n, d){
+				let tempEmp = {
+					name:n, 
+					department:d
+				};
+				
+				$http({
+					method : "POST",
+					url : "employee",
+					data : tempEmp,
+				}).then(_success, _error);
+			}
+
+			
+			$scope.updateEmp = function(id, n, d){
+				
+				let tempEmp = {
+					name : n,
+					department : d
+				};
+				
+				$http({
+					method : "PUT",
+					url : "employee/"+id,
+					data : tempEmp,
+				}).then(_success, _error);
+			}
+
+			
+			$scope.deleteEmp = function(id){
+				$http({
+					method : "DELETE",
+					url : "employee/" + id,
+					headers : {
+		            	'Content-Type' : 'application/x-www-form-urlencoded;charset=utf-8;'
+		            } 
+				}).then(_success, _error);
+			}
+
+			
+			function _success(response){
+				$scope.msg = response.data;
+			}
+			function _error(response){
+				$scope.msg = response.statusText;
+			}
+		});
+	</script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+	<h2>
+		Employee ID : <input type="text" ng-model="empid" /><br/>
+		Employee Name : <input type="text" ng-model="name" /><br/>
+		Employee Department : <input type="text" ng-model="department" /><br/>
+		<button ng-click="showEmps()">Show Employees</button>
+		<button ng-click="addEmp(name, department)">Add Employee</button>
+		<button ng-click="updateEmp(empid, name, department)">Update Employee</button>
+		<button ng-click="deleteEmp(empid)">Delete Employee</button>
+		<br/>
+		Output : {{msg}}
+		
+		<ul>
+			<li ng-repeat="x in emps">
+				{{x.name + ", " + x.department}}
+			</li>
+		</ul>
+	</h2>
+</body>
+</html>
